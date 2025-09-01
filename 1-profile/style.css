@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  color: #333;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  /* background-color: white; */
+  padding: 30px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+.profile {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.profile-picture {
+  width: 120px;
+  height: 150px;
+}
+
+.contact-info {
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 13px;
+  text-align: justify;
+  line-height: 1.4;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 3px;
+}
+
+.education-item {
+  margin-bottom: 10px;
+}
+
+.education-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.education-info .school {
+  font-weight: bold;
+}
+.education-info .location {
+  color: rgb(176, 176, 176);
+  font-size: 0.9em;
+  font-style: bold;
+}
+
+.education-info .year {
+  margin-left: auto;
+  font-style: italic;
+}
+
+.degree {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.hobbies-list .hobby-item {
+  margin-bottom: 10px;
+  display: flex;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.hobby-item .title {
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-btn {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #555;
+}
+
+.media-social .section-title {
+  border-bottom: 0px;
+}
+
+.media-social-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.media-social-item a {
+  text-decoration: none;
+  color: #333;
+}
+
+.media-social-item a:hover {
+  color: #555;
+  font-weight: bold;
+}

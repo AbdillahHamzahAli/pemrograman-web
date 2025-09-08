@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Frame</title>
+  </head>
+  <style></style>
+  <frameset rows="150, *">
+    <frameset rows="250, 100">
+      <frame src="frame/header.html" class="header" />
+      <frame src="frame/nav.html" class="nav" />
+    </frameset>
+    <frameset rows="900, 150">
+      <frameset cols="500, *">
+        <frame src="frame/sidebar.html" class="sidebar" />
+        <frame src="frame/content.html" class="content" />
+      </frameset>
+      <frame src="frame/footer.html" class="footer" />
+    </frameset>
+  </frameset>
+</html>

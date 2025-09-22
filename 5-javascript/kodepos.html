@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kode Pos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="kodepos.html">Kode Pos</a>
+        </nav>
+      </header>
+      <form action="" id="kodepos-form">
+        <h1 class="form-title">Kode Pos</h1>
+        <div class="form-group">
+          <label for="provinsi">Provinsi</label>
+          <select name="provinsi" id="provinsi-select"></select>
+          <span class="error" id="provinsi-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="kota">Kota</label>
+          <select name="kota" id="kota-select"></select>
+          <span class="error" id="kota-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="kecamatan">Kecamatan</label>
+          <select name="kecamatan" id="kecamatan-select"></select>
+          <span class="error" id="kecamatan-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="kelurahan">Kelurahan</label>
+          <select name="kelurahan" id="kelurahan-select"></select>
+          <span class="error" id="kelurahan-error"></span>
+        </div>
+        <button class="submit-btn" type="submit">Submit</button>
+      </form>
+    </div>
+    <table id="kodepos-table" class="table">
+      <thead class="table-head">
+        <tr class="table-row">
+          <th>Kode Pos</th>
+          <th>Alamat</th>
+        </tr>
+      </thead>
+      <tbody id="kodepos-table-body"></tbody>
+    </table>
+    <script src="kodepos.js"></script>
+  </body>
+</html>

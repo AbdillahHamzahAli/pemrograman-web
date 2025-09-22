@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="kodepos.html">Kode Pos</a>
+        </nav>
+      </header>
+      <form action="" id="registration-form">
+        <h1 class="form-title">Registration Form</h1>
+        <div class="form-group">
+          <label for="name">Nama Lengkap</label>
+          <input type="text" id="name" placeholder="Nama Lengkap" />
+          <span class="error" id="name-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Email" />
+          <span class="error" id="email-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="fakultas">Fakultas</label>
+          <select name="fakultas" id="fakultas-select">
+            <option value="fteic">FTEIC</option>
+            <option value="ftk">FTK</option>
+          </select>
+          <span class="error" id="fakultas-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="jurusan">Jurusan</label>
+          <select name="jurusan" id="jurusan-select"></select>
+          <span class="error" id="jurusan-error"></span>
+        </div>
+        <button class="submit-btn" type="submit">Submit</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Submit Form Without Refresh (Ajax + jQuery + PHP)</title>
+    <!-- Using Bootstrap CDN because local css/ is empty -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <style>
+      body {
+        width: 50%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="my-3">Submit Form Without Refresh (Ajax)</h1>
+
+    <form id="contactForm" name="ContactForm" method="post" action="ajax.php" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" required />
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button id="submitBtn" type="submit" class="btn btn-primary">
+        <span class="btn-text">Submit</span>
+        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+      </button>
+    </form>
+
+    <div class="message_box mt-3"></div>
+
+    <br /><br />
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var $form = $("#contactForm");
+        var $btn = $("#submitBtn");
+        var $btnText = $btn.find(".btn-text");
+        var $spinner = $btn.find(".spinner-border");
+
+        $form.on("submit", function (e) {
+          e.preventDefault();
+
+          var name = $("#name").val().trim();
+          var email = $("#email").val().trim();
+          var message = $("#message").val().trim();
+
+          if (!name) {
+            $(".message_box").html('<div class="text-danger">Enter your name.</div>');
+            return;
+          }
+          if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            $(".message_box").html('<div class="text-danger">Enter a valid email.</div>');
+            return;
+          }
+          if (!message) {
+            $(".message_box").html('<div class="text-danger">Enter your message.</div>');
+            return;
+          }
+
+          $btn.prop("disabled", true);
+          $spinner.removeClass("d-none");
+          $(".message_box").html('<img src="Loader.gif" width="25" height="25" alt="loading" />');
+
+          $.ajax({
+            type: "POST",
+            url: $form.attr("action"),
+            data: { name: name, email: email, message: message },
+            dataType: "json",
+            success: function (res) {
+              if (res && res.status === "success") {
+                $(".message_box").html('<div class="text-success fw-bold">' + res.message + "</div>");
+                $form.trigger("reset");
+              } else {
+                var msg = res && res.message ? res.message : "Submission failed.";
+                $(".message_box").html('<div class="text-danger fw-bold">' + msg + "</div>");
+              }
+            },
+            error: function () {
+              $(".message_box").html('<div class="text-danger fw-bold">Network error. Please try again.</div>');
+            },
+            complete: function () {
+              $btn.prop("disabled", false);
+              $spinner.addClass("d-none");
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
